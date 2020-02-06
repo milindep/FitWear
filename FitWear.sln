@@ -23,12 +23,15 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FitWear-frontoffice", "FitW
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "12357"
+		SlnRelativePath = "FitWear-frontoffice\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitWear-classes", "FitWear-classes\FitWear-classes.csproj", "{AC72D289-6C83-46E6-B8F5-6346156BB1CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "firwear-testing", "firwear-testing\firwear-testing.csproj", "{23455E1C-5C0B-4189-98F2-F03E28E56706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tstStock1", "tstStock1\tstStock1.csproj", "{4DC63374-1D05-452F-9476-5BABC6DEBF6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +55,10 @@ Global
 		{23455E1C-5C0B-4189-98F2-F03E28E56706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23455E1C-5C0B-4189-98F2-F03E28E56706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23455E1C-5C0B-4189-98F2-F03E28E56706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC63374-1D05-452F-9476-5BABC6DEBF6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC63374-1D05-452F-9476-5BABC6DEBF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC63374-1D05-452F-9476-5BABC6DEBF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC63374-1D05-452F-9476-5BABC6DEBF6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
