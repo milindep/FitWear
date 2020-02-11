@@ -31,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitWear-classes", "FitWear-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "firwear-testing", "firwear-testing\firwear-testing.csproj", "{23455E1C-5C0B-4189-98F2-F03E28E56706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tstStock1", "tstStock1\tstStock1.csproj", "{4DC63374-1D05-452F-9476-5BABC6DEBF6C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,10 +53,6 @@ Global
 		{23455E1C-5C0B-4189-98F2-F03E28E56706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23455E1C-5C0B-4189-98F2-F03E28E56706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23455E1C-5C0B-4189-98F2-F03E28E56706}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4DC63374-1D05-452F-9476-5BABC6DEBF6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4DC63374-1D05-452F-9476-5BABC6DEBF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4DC63374-1D05-452F-9476-5BABC6DEBF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4DC63374-1D05-452F-9476-5BABC6DEBF6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
