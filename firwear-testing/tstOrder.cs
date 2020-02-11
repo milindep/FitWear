@@ -14,6 +14,15 @@ namespace firwear_testing
             Assert.IsNotNull(anOrderProcessing);
 
         }
-
+        
+        [TestMethod]
+        public void OrderID()
+        {
+            clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
+            Int32 TestData = 1;
+            anOrderProcessing.OrderID = TestData;
+            Assert.AreEqual(anOrderProcessing.OrderID, TestData);
+        }
     }
 }
+
