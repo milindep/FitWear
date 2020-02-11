@@ -2,5 +2,6 @@
 {
     public class clsOrderProcessing
     {
+        public int OrderID { get; set; }
     }
 }
