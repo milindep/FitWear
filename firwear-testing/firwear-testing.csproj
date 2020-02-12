@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="tstOrder.cs" />
     <Compile Include="tstStock.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

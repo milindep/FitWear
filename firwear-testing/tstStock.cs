@@ -22,7 +22,7 @@ namespace firwear_testing
         public void StockID()
         {
             clsStock anStock = new clsStock();
-            Int32 TestData = 1;
+            Int32 TestData = 5;
             anStock.StockID = TestData;
             Assert.AreEqual(anStock.StockID, TestData);
         }
@@ -42,7 +42,7 @@ namespace firwear_testing
         public void AmountOfStock()
         {
             clsStock anStock = new clsStock();
-            Int32 TestData = 1;
+            Int32 TestData = 5;
             anStock.AmountOfStock = TestData;
             Assert.AreEqual(anStock.AmountOfStock, TestData);
         }
@@ -52,7 +52,7 @@ namespace firwear_testing
         public void Price()
         {
             clsStock anStock = new clsStock();
-            Int32 TestData = 1;
+            float TestData = 9.99F;
             anStock.Price = TestData;
             Assert.AreEqual(anStock.Price, TestData);
         }
