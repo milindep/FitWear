@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FitWear-frontoffice", "FitWear-frontoffice\", "{B95492D1-D74E-4D29-B843-F7ED882F57FB}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{ac72d289-6c83-46e6-b8f5-6346156bb1cc}|FitWear-classes.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_12357"
 		Debug.AspNetCompiler.PhysicalPath = "FitWear-frontoffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_12357\"
