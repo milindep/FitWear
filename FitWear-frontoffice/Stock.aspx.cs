@@ -31,7 +31,9 @@ public partial class Stock : System.Web.UI.Page
         AnStock.Price = Convert.ToDouble(txtPrice.Text);
         //checks Size
         AnStock.Size = Convert.ToInt32(txtSize.Text);
-        
+        //checks date
+        AnStock.DateAddedInStock = Convert.ToDateTime(txtDateAddedInStock.Text);
+
         //store the stock in the session object
         Session["AnStock"] = AnStock;
         //redirect to the viewer page
@@ -41,6 +43,21 @@ public partial class Stock : System.Web.UI.Page
     }
 
     protected void TextBox2_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void txtDateAddedInStock_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void txtProductID_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void txtSize_TextChanged(object sender, EventArgs e)
     {
 
     }
