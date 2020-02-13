@@ -5,7 +5,7 @@
         public int StockID { get; set; }
         public string ProductName { get; set; }
         public int AmountOfStock { get; set; }
-        public float Price { get; set; }
+        public double Price { get; set; }
         public int Size { get; set; }
         public bool Availability { get; set; }
     }

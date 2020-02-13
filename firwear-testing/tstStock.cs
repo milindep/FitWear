@@ -52,7 +52,7 @@ namespace firwear_testing
         public void Price()
         {
             clsStock anStock = new clsStock();
-            float TestData = 9.99F;
+            double TestData = 9.99;
             anStock.Price = TestData;
             Assert.AreEqual(anStock.Price, TestData);
         }
@@ -76,6 +76,7 @@ namespace firwear_testing
             anStock.Availability = TestData;
             Assert.AreEqual(anStock.Availability, TestData);
         }
+       
 
     }
 
