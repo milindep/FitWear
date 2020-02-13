@@ -76,7 +76,16 @@ namespace firwear_testing
             anStock.Availability = TestData;
             Assert.AreEqual(anStock.Availability, TestData);
         }
-       
+
+        //test date added in stock
+       [TestMethod]
+       public void DateAddedInStock()
+        {
+            clsStock anStock = new clsStock();
+            DateTime TestData = DateTime.Now.Date;
+            anStock.DateAddedInStock = TestData;
+            Assert.AreEqual(anStock.DateAddedInStock, TestData);
+        }
 
     }
 

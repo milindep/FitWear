@@ -1,4 +1,6 @@
-﻿namespace FitWear_classes
+﻿using System;
+
+namespace FitWear_classes
 {
     public class clsStock
     {
@@ -8,5 +10,6 @@
         public double Price { get; set; }
         public int Size { get; set; }
         public bool Availability { get; set; }
+        public DateTime DateAddedInStock { get; set; }
     }
 }
