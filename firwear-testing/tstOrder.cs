@@ -23,6 +23,16 @@ namespace firwear_testing
             anOrderProcessing.OrderID = TestData;
             Assert.AreEqual(anOrderProcessing.OrderID, TestData);
         }
+        [TestMethod]
+
+        public void CustomerID()
+        {
+            clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
+            Int32 TestData = 1;
+            anOrderProcessing.CustomerID = TestData;
+            Assert.AreEqual(anOrderProcessing.CustomerID, TestData);
+
+        }
     }
 }
 
