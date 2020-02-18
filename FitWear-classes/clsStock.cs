@@ -11,5 +11,6 @@ namespace FitWear_classes
         public int Size { get; set; }
         public bool Availability { get; set; }
         public DateTime DateAddedInStock { get; set; }
+     
     }
 }
