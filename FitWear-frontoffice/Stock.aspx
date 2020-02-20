@@ -9,22 +9,24 @@
 <body>
     <form id="form1" runat="server">
         <div>
-        &nbsp;Product ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtProductID" runat="server" OnTextChanged="txtProductID_TextChanged"></asp:TextBox>
+        &nbsp;Product ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            <asp:TextBox ID="txtProductID" runat="server" OnTextChanged="txtProductID_TextChanged" style="margin-left: 0px"></asp:TextBox>
+            <asp:Button ID="txtFind" runat="server" OnClick="txtFind_Click" Text="Find" Width="47px" />
             <br />
-&nbsp;Product Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtProductName" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+&nbsp;Product Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            <asp:TextBox ID="txtProductName" runat="server" OnTextChanged="TextBox2_TextChanged" style="margin-left: 0px"></asp:TextBox>
             <br />
-            Amount of Stock&nbsp;&nbsp; <asp:TextBox ID="txtAmountOfStock" runat="server"></asp:TextBox>
+            Amount of Stock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtAmountOfStock" runat="server" style="margin-left: 0px"></asp:TextBox>
             <br />
-            Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
+            Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtPrice" runat="server" style="margin-left: 1px"></asp:TextBox>
             <br />
-            Size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtSize" runat="server" OnTextChanged="txtSize_TextChanged"></asp:TextBox>
+            Size&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            <asp:TextBox ID="txtSize" runat="server" OnTextChanged="txtSize_TextChanged" style="margin-left: 3px"></asp:TextBox>
             <br />
-            Date added in Stock
-            <asp:TextBox ID="txtDateAddedInStock" runat="server"></asp:TextBox>
+            Date added in Stock&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtDateAddedInStock" runat="server" style="margin-left: 0px"></asp:TextBox>
+            <br />
             <br />
 &nbsp;<asp:CheckBox ID="chkbxAvailability" runat="server" Text="Availability" />
             <br />

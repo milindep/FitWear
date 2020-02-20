@@ -61,4 +61,60 @@ public partial class Stock : System.Web.UI.Page
     {
 
     }
+
+  
+
+    protected void txtDateAddedInStock_TextChanged1(object sender, EventArgs e)
+    {
+
+    }
+
+
+
+    protected void btnFind_Click1(object sender, EventArgs e)
+    {
+
+        clsStock AnStock = new clsStock();
+
+        Int32 StockID;
+
+        Boolean Found = false;
+
+        StockID = Convert.ToInt32(txtProductID.Text);
+
+        Found = AnStock.Find(StockID);
+
+        if (Found == true)
+        {
+            txtProductID.Text = Convert.ToString(AnStock.StockID);
+            txtProductName.Text = AnStock.ProductName;
+            txtAmountOfStock.Text = Convert.ToString(AnStock.AmountOfStock);
+            txtPrice.Text = Convert.ToString(AnStock.Price);
+            txtSize.Text = Convert.ToString(AnStock.Size);
+            txtDateAddedInStock.Text = AnStock.DateAddedInStock.ToString();
+        }
+    }
+
+    protected void txtFind_Click(object sender, EventArgs e)
+    {
+        clsStock AnStock = new clsStock();
+
+        Int32 StockID;
+
+        Boolean Found = false;
+
+        StockID = Convert.ToInt32(txtProductID.Text);
+
+        Found = AnStock.Find(StockID);
+
+        if (Found == true)
+        {
+            txtProductID.Text = Convert.ToString(AnStock.StockID);
+            txtProductName.Text = AnStock.ProductName;
+            txtAmountOfStock.Text = Convert.ToString(AnStock.AmountOfStock);
+            txtPrice.Text = Convert.ToString(AnStock.Price);
+            txtSize.Text = Convert.ToString(AnStock.Size);
+            txtDateAddedInStock.Text = AnStock.DateAddedInStock.ToString();
+        }
+    }
 }
