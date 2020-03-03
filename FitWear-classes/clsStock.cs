@@ -129,6 +129,25 @@ namespace FitWear_classes
             }
         }
 
-      
+        public string Valid(Action stockID, Action productName, Action amountOfStock, Action price, Action size, Action dateAddedInStock)
+        {
+            return "";
+        }
+
+       
+        public string Valid(string stockID, Action productName, Action amountOfStock, Action price, Action size, Action dateAddedInStock)
+        {
+            String Error = "";
+            if (stockID.Length == 0)
+            {
+                Error = Error + "the Stock ID may not be blank: ";
+            }
+
+            if(stockID.Length >6)
+            {
+                Error = Error + "The Stock ID must be less than 6 numbers: ";
+            }
+            return Error;
+        }
     }
 }
