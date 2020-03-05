@@ -22,23 +22,39 @@ public partial class Stock : System.Web.UI.Page
     {
         clsStock AnStock = new clsStock();
         //checks the stock ID
-        AnStock.StockID = Convert.ToInt32(txtProductID.Text);
+        string StockID = txtProductID.Text;
         //checks the product ID
-        AnStock.ProductName = txtProductName.Text;
+        string ProductName = txtProductName.Text;
         // checks Amount of stock
-        AnStock.AmountOfStock = Convert.ToInt32(txtAmountOfStock.Text);
+        string AmountOfStock =txtAmountOfStock.Text;
         //checks price
-        AnStock.Price = Convert.ToDouble(txtPrice.Text);
+        string Price = txtPrice.Text;
         //checks Size
-        AnStock.Size = Convert.ToInt32(txtSize.Text);
+        string Size = txtSize.Text;
         //checks date
-        AnStock.DateAddedInStock = Convert.ToDateTime(txtDateAddedInStock.Text);
+        string DateAddedInStock = txtDateAddedInStock.Text;
 
-        //store the stock in the session object
-        Session["AnStock"] = AnStock;
-        //redirect to the viewer page
-        Response.Redirect("StockViewer.aspx");
+        string Error = "";
+        Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
+        if (Error == "")
+        {
+            AnStock.StockID = Convert.ToInt32(StockID);
+            AnStock.ProductName = ProductName;
+            AnStock.AmountOfStock = Convert.ToInt32(AmountOfStock);
+            AnStock.Price = Convert.ToInt32(Price);
+            AnStock.Size = Convert.ToInt32(Size);
+            AnStock.DateAddedInStock = Convert.ToDateTime(DateAddedInStock);
 
+
+            //store the stock in the session object
+            Session["AnStock"] = AnStock;
+            //redirect to the viewer page
+            Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
 
     }
 

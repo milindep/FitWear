@@ -111,12 +111,12 @@ namespace FitWear_classes
 
             DB.Execute("sproc_tblStock_FilterByStockID");
 
-            if(DB.Count == 1)
+            if (DB.Count == 1)
             {
                 mStockID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
                 mProductName = Convert.ToString(DB.DataTable.Rows[0]["ProductName"]);
                 mAmountOfStock = Convert.ToInt32(DB.DataTable.Rows[0]["AmountInStock"]);
-                mPrice =  Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
+                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
                 mSize = Convert.ToInt32(DB.DataTable.Rows[0]["Size"]);
                 mAvailability = Convert.ToBoolean(DB.DataTable.Rows[0]["Availability"]);
                 mDateAddedInStock = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAddedInStock"]);
@@ -129,25 +129,117 @@ namespace FitWear_classes
             }
         }
 
-        public string Valid(Action stockID, Action productName, Action amountOfStock, Action price, Action size, Action dateAddedInStock)
-        {
-            return "";
-        }
-
-       
-        public string Valid(string stockID, Action productName, Action amountOfStock, Action price, Action size, Action dateAddedInStock)
+        public string Valid(string stockID, string productName, string amountOfStock, string price, string size, string dateAddedInStock)
         {
             String Error = "";
-            if (stockID.Length == 0)
+            //stock ID
+                if (stockID.Length == 0)
+                {
+                    Error = Error + "The Stock ID may not be blank : ";
+                }
+
+                if(stockID.Length >6)
+                {
+                    Error = Error + "The Stock ID must be less than 6 numbers : ";
+                }
+
+            try
             {
-                Error = Error + "the Stock ID may not be blank: ";
+                Convert.ToInt32(stockID);
+            }
+            catch
+            {
+                Error += "Stock ID is not a valid number : ";
             }
 
-            if(stockID.Length >6)
+            //Product Name
+            if (productName.Length == 0)
             {
-                Error = Error + "The Stock ID must be less than 6 numbers: ";
+                Error = Error + "The Product Name may not be blank : ";
+            }
+            if (productName.Length > 50)
+            {
+                Error = Error + "The Product Name must be less than 50 characters : ";
+            }
+
+            //Amount Of Stock
+            if (amountOfStock.Length == 0)
+            {
+                Error = Error + "The Amount Of Stock may not be blank : ";
+            }
+            if (amountOfStock.Length > 6)
+            {
+                Error = Error + "The Amount Of Stock must be less than 6 numbers : ";
+            }
+            try
+            {
+                Convert.ToInt32(amountOfStock);
+            }
+            catch
+            {
+                Error += "Amount of Stock is not a valid number : ";
+            }
+
+            //Price
+            if (price.Length == 0.00)
+            {
+                Error = Error + "The Price may not be blank : ";
+            }
+            if (price.Length > 100000.00)
+            {
+                Error = Error + "The Price must be less than 6 numbers : ";
+            }
+            try
+            {
+                Convert.ToDouble(price);
+            }
+            catch
+            {
+                Error += "Price is not a valid number : ";
+            }
+
+            //Size
+            if (size.Length == 0)
+            {
+                Error = Error + "The Size may not be blank : ";
+            }
+            if (size.Length > 100)
+            {
+                Error = Error + "The Size must be less than 6 numbers : ";
+            }
+            try
+            {
+                Convert.ToInt32(size);
+            }
+            catch
+            {
+                Error += "Size is not a valid number : ";
+            }
+
+            //date added in stock
+            try
+            {
+                DateTime DateTemp;
+                DateTemp = Convert.ToDateTime(dateAddedInStock);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The Date cannot be in the past :";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The Date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The Date was not a valid date :";
             }
             return Error;
         }
     }
+
+
+
+       
+       
 }

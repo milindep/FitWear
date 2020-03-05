@@ -30,6 +30,7 @@
             <br />
 &nbsp;<asp:CheckBox ID="chkbxAvailability" runat="server" Text="Availability" />
             <br />
+            <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
             <br />
             <asp:Button ID="btnOK" runat="server" Text="OK" Width="49px" OnClick="btnOK_Click" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
