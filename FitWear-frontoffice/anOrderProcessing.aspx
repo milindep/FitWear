@@ -11,6 +11,7 @@
         <div>
             OrderID
             <asp:TextBox ID="txtOrderID" runat="server" OnTextChanged="txtOrderID_TextChanged" style="margin-left: 66px" Width="228px"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         </div>
         <p>
             CustomerID<asp:TextBox ID="txtCustomerID" runat="server" OnTextChanged="txtCustomerID_TextChanged" style="margin-left: 47px" Width="229px"></asp:TextBox>

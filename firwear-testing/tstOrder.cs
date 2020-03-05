@@ -86,7 +86,7 @@ namespace firwear_testing
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             Boolean Found = false;
-            Int32 OrderID = 1;
+            Int32 OrderID = 21;
             Found = anOrderProcessing.Find(OrderID);
             Assert.IsTrue(Found);
             
@@ -117,7 +117,7 @@ namespace firwear_testing
             Boolean OK = true;
             Int32 OrderID = 21;
             Found = anOrderProcessing.Find(OrderID);
-            if (anOrderProcessing.CustomerID != 21)
+            if (anOrderProcessing.CustomerID != 19)
             {
                 OK = false;
             }
@@ -133,7 +133,7 @@ namespace firwear_testing
             Boolean OK = true;
             Int32 OrderID = 21;
             Found = anOrderProcessing.Find(OrderID);
-            if (anOrderProcessing.OrderDescription != "Test Order Description")
+            if (anOrderProcessing.OrderDescription != "Hollister sweat")
             {
                 OK = false;
 
@@ -150,7 +150,7 @@ namespace firwear_testing
             Boolean OK = true;
             Int32 OrderID = 21;
             Found = anOrderProcessing.Find(OrderID);
-            if (anOrderProcessing.OrderDate != Convert.ToDateTime("16/09/2015"))
+            if (anOrderProcessing.OrderDate != Convert.ToDateTime("03/03/2020"))
             {
                 OK = false;
 
@@ -167,7 +167,7 @@ namespace firwear_testing
             Boolean OK = true;
             Int32 OrderID = 21;
             Found = anOrderProcessing.Find(OrderID);
-            if (anOrderProcessing.TotalOrderAmount != 10.00)
+            if (anOrderProcessing.TotalOrderAmount != 25.00)
             {
                 OK = false;
 

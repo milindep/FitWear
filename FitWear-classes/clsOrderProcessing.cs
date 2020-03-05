@@ -83,7 +83,9 @@ namespace FitWear_classes
             }
         }
 
-        public bool Find(int orderID)
+ 
+
+        public bool Find(int OrderID)
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@OrderID", OrderID);

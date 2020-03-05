@@ -51,4 +51,24 @@ public partial class anOrderProcessing : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
+        Int32 OrderID;
+        Boolean Found = false;
+        OrderID = Convert.ToInt32(txtOrderID.Text);
+        Found = anOrderProcessing.Find(OrderID);
+        if (Found == true)
+        {
+            txtCustomerID.Text = anOrderProcessing.CustomerID;
+            txtOrderDescription.Text = anOrderProcessing.OrderDescription;
+            txtOrderDate.Text = anOrderProcessing.OrderDate;#
+            txtTotalOrderAmount.Text = anOrderProcessing.TotalOrderAmount;
+            
+
+
+
+        }
+            }
 }
