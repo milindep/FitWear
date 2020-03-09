@@ -207,7 +207,7 @@ namespace firwear_testing
     {
         clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
         String Error = "";
-        Error = anOrderProcessing.Valid(OrderID, CustomerID, OrderDescription, OrderDate, TotalOrderAmount, OrderDispatched);
+        Error = anOrderProcessing.Valid(CustomerID, OrderDescription, OrderDate, TotalOrderAmount, OrderDispatched);
         Assert.AreEqual(Error, "");
     }
 
