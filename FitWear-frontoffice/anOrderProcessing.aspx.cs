@@ -61,10 +61,10 @@ public partial class anOrderProcessing : System.Web.UI.Page
         Found = anOrderProcessing.Find(OrderID);
         if (Found == true)
         {
-            txtCustomerID.Text = anOrderProcessing.CustomerID;
-            txtOrderDescription.Text = anOrderProcessing.OrderDescription;
-            txtOrderDate.Text = anOrderProcessing.OrderDate;#
-            txtTotalOrderAmount.Text = anOrderProcessing.TotalOrderAmount;
+            txtCustomerID.Text = Convert.ToString(anOrderProcessing.CustomerID);
+            txtOrderDescription.Text = Convert.ToString(anOrderProcessing.OrderDescription);
+            txtOrderDate.Text = anOrderProcessing.OrderDate.ToString();
+            txtTotalOrderAmount.Text = Convert.ToString(anOrderProcessing.TotalOrderAmount);
             
 
 
