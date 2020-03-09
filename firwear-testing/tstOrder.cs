@@ -3,10 +3,21 @@ using FitWear_classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace firwear_testing
-{
+
+    
     [TestClass]
     public class tstOrder
     {
+    [TestClass]
+    public class TstOrder
+    {
+        string CustomerID = "19";
+        string OrderDescription = "Hollister sweat";
+        string OrderDate = DateTime.Now.Date.ToString();
+        string TotalOrderAmount = "25.00";
+        string OrderDispatched = "True";
+
+    }
         [TestMethod]
         public void InstanceOK()
         {
@@ -190,6 +201,15 @@ namespace firwear_testing
             Assert.IsTrue(OK);
         }
 
+    [TestMethod]
+
+    public void ValidMethodOK()
+    {
+        clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
+        String Error = "";
+        Error = anOrderProcessing.Valid(CustomerID, OrderDescription, OrderDate, TotalOrderAmount, OrderDispatched);
+        Assert.AreEqual(Error, "");
+    }
 
     }
 }

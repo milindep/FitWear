@@ -105,5 +105,10 @@ namespace FitWear_classes
                 return false;
             }
         }
+
+        public string Valid(Action customerID, Action orderDescription, Action orderDate, Action totalOrderAmount, Action orderDispatched)
+        {
+            return "";
+        }
     }
 }
