@@ -110,5 +110,11 @@ namespace FitWear_classes
         {
             return "";
         }
+
+        public string Valid(string orderID, string customerID, string orderDescription, string orderDate, string totalOrderAmount, string orderDispatched)
+        {
+
+            return "";
+        }
     }
 }

@@ -4,20 +4,20 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace firwear_testing
 
-    
+{ 
     [TestClass]
     public class tstOrder
     {
-    [TestClass]
-    public class tstOrder
-    {
+
+  
         string CustomerID = "19";
         string OrderDescription = "Hollister sweat";
         string OrderDate = DateTime.Now.Date.ToString();
         string TotalOrderAmount = "25.00";
         string OrderDispatched = "True";
 
-    }
+  
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -37,7 +37,7 @@ namespace firwear_testing
 
         [TestMethod]
 
-        public void CustomerID()
+        public void CustomerIDOk()
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             Int32 TestData = 1;
@@ -48,7 +48,7 @@ namespace firwear_testing
 
         [TestMethod]
 
-        public void OrderDescription()
+        public void OrderDescriptionOk()
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             string TestData = "some Order Description";
@@ -59,7 +59,7 @@ namespace firwear_testing
 
         [TestMethod]
 
-        public void OrderDate()
+        public void OrderDateOk()
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             DateTime TestData = DateTime.Now.Date;
@@ -70,7 +70,7 @@ namespace firwear_testing
 
         [TestMethod]
 
-        public void TotalOrderAmount()
+        public void TotalOrderAmountOk()
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             double TestData = 9.99;
@@ -82,7 +82,7 @@ namespace firwear_testing
 
         [TestMethod]
 
-        public void OrderDispatched()
+        public void OrderDispatchedOk()
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             Boolean TestData = true;
@@ -207,10 +207,21 @@ namespace firwear_testing
     {
         clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
         String Error = "";
-        Error = anOrderProcessing.Valid(CustomerID, OrderDescription, OrderDate, TotalOrderAmount, OrderDispatched);
+        Error = anOrderProcessing.Valid(OrderID, CustomerID, OrderDescription, OrderDate, TotalOrderAmount, OrderDispatched);
         Assert.AreEqual(Error, "");
     }
 
+    [TestMethod]
+
+    public void OrderIDMinLessOne()
+        {
+            clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
+            String Error = "";
+            string OrderID = "";
+            Error = anOrderProcessing.Valid(CustomerID, OrderDescription, OrderDate, TotalOrderAmount, OrderDispatched)
+        }
+
+    
     }
 }
 
