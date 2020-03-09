@@ -9,7 +9,7 @@ namespace firwear_testing
     public class tstOrder
     {
     [TestClass]
-    public class TstOrder
+    public class tstOrder
     {
         string CustomerID = "19";
         string OrderDescription = "Hollister sweat";
