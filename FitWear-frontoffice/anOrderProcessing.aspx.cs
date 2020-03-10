@@ -31,20 +31,37 @@ public partial class anOrderProcessing : System.Web.UI.Page
     {
         clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
 
-        anOrderProcessing.OrderID = Convert.ToInt32(txtOrderID.Text);
-
-        anOrderProcessing.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-
-        anOrderProcessing.OrderDescription = txtOrderDescription.Text;
-
-        anOrderProcessing.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
-
-        anOrderProcessing.TotalOrderAmount = Convert.ToDouble(txtTotalOrderAmount.Text);
-
+        string CustomerID = txtCustomerID.Text;
+        string OrderDescription = txtOrderDescription.Text;
+        string OrderDate = txtOrderDate.Text;
+        string TotalOrderAmount = txtTotalOrderAmount.Text;
+        string Error = "";
+        Error = anOrderProcessing.Valid(CustomerID, OrderDescription, OrderDate, TotalOrderAmount);
+        if (Error == "")
+        {
 
 
-        Session["anOrderProcessing"] = anOrderProcessing;
-        Response.Redirect("OrderProcessingViewer.aspx");
+
+            anOrderProcessing.OrderID = Convert.ToInt32(txtOrderID.Text);
+
+            anOrderProcessing.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+
+            anOrderProcessing.OrderDescription = txtOrderDescription.Text;
+
+            anOrderProcessing.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
+
+            anOrderProcessing.TotalOrderAmount = Convert.ToDouble(txtTotalOrderAmount.Text);
+
+
+
+            Session["anOrderProcessing"] = anOrderProcessing;
+            Response.Redirect("OrderProcessingViewer.aspx");
+
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void TextBox5_TextChanged(object sender, EventArgs e)

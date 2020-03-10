@@ -106,15 +106,64 @@ namespace FitWear_classes
             }
         }
 
-        public string Valid(Action customerID, Action orderDescription, Action orderDate, Action totalOrderAmount, Action orderDispatched)
+        public string Valid(Action customerID, Action orderDescription, Action orderDate, Action totalOrderAmount)
         {
             return "";
         }
 
-        public string Valid(string customerID, string orderDescription, string orderDate, string totalOrderAmount, string orderDispatched)
+        public string Valid(string customerID, string orderDescription, string orderDate, string totalOrderAmount)
         {
+            String Error = "";
+            DateTime DateTemp;
+            if (customerID.Length == 0)
+            {
+                Error = Error + "he Customer ID may not be blank: ";
+            }
 
-            return "";
+            if (customerID.Length > 6)
+            {
+                Error = Error + "The Customer ID must be less than 6 digits: ";
+            }
+            try
+            {
+
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date caanot be in the future: ";
+                }
+
+            }
+            catch
+            {
+                Error = Error + "The date was not valid date : ";
+            }
+
+            if (orderDescription.Length == 0)
+            {
+                Error = Error + "The order Description must not be blanked : "; 
+            }
+            if (orderDescription.Length > 50)
+            {
+                Error = Error + "The order Description must be less than 50 characters :";
+            }
+
+            if (totalOrderAmount.Length == 0.00)
+            {
+                Error = Error + "The total order amount may not be left blank : ";
+            }
+
+            if (totalOrderAmount.Length > 9)
+            {
+                Error = Error + "The total order amount must be less than 9 : ";
+            }
+            return Error;
+
         }
     }
 }

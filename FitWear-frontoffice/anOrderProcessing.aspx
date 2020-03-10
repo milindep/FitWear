@@ -27,6 +27,8 @@
         <br />
         <asp:CheckBox ID="chkbxOrderDispatched" runat="server" Text="OrderDispatched" />
         <br />
+        <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
+        <br />
         <br />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="margin-left: 43px" Text="Cancel" Width="109px" />
