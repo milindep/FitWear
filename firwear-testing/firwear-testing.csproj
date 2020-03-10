@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="tstOrder.cs" />
+    <Compile Include="tstOrderLine.cs" />
     <Compile Include="tstStock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

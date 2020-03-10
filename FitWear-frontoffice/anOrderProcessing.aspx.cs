@@ -40,8 +40,6 @@ public partial class anOrderProcessing : System.Web.UI.Page
         if (Error == "")
         {
 
-
-
             anOrderProcessing.OrderID = Convert.ToInt32(txtOrderID.Text);
 
             anOrderProcessing.CustomerID = Convert.ToInt32(txtCustomerID.Text);

@@ -406,7 +406,7 @@ namespace firwear_testing
 
         [TestMethod]
 
-        public void OrderDescriptionPlusOne()
+        public void OrderDescriptionMinPlusOne()
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             String Error = "";
@@ -496,7 +496,7 @@ namespace firwear_testing
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             String Error = "";
-            string TotalOrderAmount = "1111111";
+            string TotalOrderAmount = "11111111";
             Error = anOrderProcessing.Valid(CustomerID, OrderDescription, OrderDate, TotalOrderAmount);
             Assert.AreEqual(Error, "");
         }
@@ -506,7 +506,7 @@ namespace firwear_testing
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             String Error = "";
-            string TotalOrderAmount = "1111111";
+            string TotalOrderAmount = "111111111";
             Error = anOrderProcessing.Valid(CustomerID, OrderDescription, OrderDate, TotalOrderAmount);
             Assert.AreEqual(Error, "");
         }
@@ -516,7 +516,7 @@ namespace firwear_testing
         {
             clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
             String Error = "";
-            string TotalOrderAmount = "";
+            string TotalOrderAmount = "1111111111";
             Error = anOrderProcessing.Valid(CustomerID, OrderDescription, OrderDate, TotalOrderAmount);
             Assert.AreNotEqual(Error, "");
         }
