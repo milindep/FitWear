@@ -35,10 +35,10 @@ public partial class Stock : System.Web.UI.Page
         string DateAddedInStock = txtDateAddedInStock.Text;
 
         string Error = "";
-        Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
+        Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
         if (Error == "")
         {
-            AnStock.StockID = Convert.ToInt32(StockID);
+           // AnStock.StockID = Convert.ToInt32(StockID);
             AnStock.ProductName = ProductName;
             AnStock.AmountOfStock = Convert.ToInt32(AmountOfStock);
             AnStock.Price = Convert.ToInt32(Price);
@@ -87,7 +87,7 @@ public partial class Stock : System.Web.UI.Page
 
 
 
-    protected void btnFind_Click1(object sender, EventArgs e)
+    protected void btnFind_Click(object sender, EventArgs e)
     {
 
         clsStock AnStock = new clsStock();
@@ -111,26 +111,4 @@ public partial class Stock : System.Web.UI.Page
         }
     }
 
-    protected void txtFind_Click(object sender, EventArgs e)
-    {
-        clsStock AnStock = new clsStock();
-
-        Int32 StockID;
-
-        Boolean Found = false;
-
-        StockID = Convert.ToInt32(txtProductID.Text);
-
-        Found = AnStock.Find(StockID);
-
-        if (Found == true)
-        {
-            txtProductID.Text = Convert.ToString(AnStock.StockID);
-            txtProductName.Text = AnStock.ProductName;
-            txtAmountOfStock.Text = Convert.ToString(AnStock.AmountOfStock);
-            txtPrice.Text = Convert.ToString(AnStock.Price);
-            txtSize.Text = Convert.ToString(AnStock.Size);
-            txtDateAddedInStock.Text = AnStock.DateAddedInStock.ToString();
-        }
-    }
 }

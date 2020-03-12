@@ -9,8 +9,6 @@ namespace firwear_testing
     {
 
 
-        
-       string StockID = "5";
        string ProductName = "shorts";
        string AmountOfStock = "13";
        string Price = "23.00";
@@ -269,17 +267,7 @@ namespace firwear_testing
             Assert.IsTrue(OK);
         }
         //----------------------------------------------------------------------------------------
-        /*[TestClass]
-         public class tststock
-        {
-            string StockID = "1";
-            string ProductName = "some stock";
-            string AmountOfStock = "1";
-            string Price = "10.00";
-            string Size = "1";
-            string DateAddedInSTock = DateTime.Now.Date.ToString();
-        }*/
-        
+  
         //validation
         //valid method ok
        [TestMethod]
@@ -287,108 +275,10 @@ namespace firwear_testing
         {
             clsStock AnStock = new clsStock();
             String Error = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
-        //-StockID Validation
-        //StockIDMinLessOne
-        [TestMethod]
-        public void StockIDMinLessOne()
-        {
-            clsStock AnStock = new clsStock();
-            String Error = "";
-            String StockID = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid(StockID, "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
-            Assert.AreNotEqual(Error, "");
-        }
-
-        //StockIDMinLessOne
-        [TestMethod]
-        public void StockIDMin()
-        {
-            clsStock AnStock = new clsStock();
-            String Error = "";
-            String StockID = "1";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid(StockID, "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
-            Assert.AreEqual(Error, "");
-        }
-
-        //StockIDMinPlusOne
-        [TestMethod]
-        public void StockIDMinPlusOne()
-        {
-            clsStock AnStock = new clsStock();
-            String Error = "";
-            String StockID = "11";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid(StockID, "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
-            Assert.AreEqual(Error, "");
-        }
-
-        //StockIDMaxLessOne
-        [TestMethod]
-        public void StockIDMaxLessOne()
-        {
-            clsStock AnStock = new clsStock();
-            String Error = "";
-            String StockID = "11111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid(StockID, "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
-            Assert.AreEqual(Error, "");
-        }
-
-        //StockIDMax
-        [TestMethod]
-        public void StockIDMax()
-        {
-            clsStock AnStock = new clsStock();
-            String Error = "";
-            String StockID = "111111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid(StockID, "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
-            Assert.AreEqual(Error, "");
-        }
-
-        //StockIDMid
-        [TestMethod]
-        public void StockIDMid()
-        {
-            clsStock AnStock = new clsStock();
-            String Error = "";
-            String StockID = "111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid(StockID, "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
-            Assert.AreEqual(Error, "");
-        }
-
-        //StockIDMAxPlusOne
-        [TestMethod]
-        public void StockIDMaxPlusOne()
-        {
-            clsStock AnStock = new clsStock();
-            String Error = "";
-            String StockID = "1111111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid(StockID, "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
-            Assert.AreNotEqual(Error, "");
-        }
-
-        //StockIDExtremeMax
-        [TestMethod]
-        public void StockIDExtremeMax()
-        {
-            clsStock AnStock = new clsStock();
-            String Error = "";
-            String StockID = "";
-            StockID = StockID.PadRight(500, '1');
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid(StockID, "1", "5", "2.50", "10", DateTime.Now.Date.ToString());
-            Assert.AreNotEqual(Error, "");
-        }
         //-----------------------------------------------------------------------------------------------------------
         //-Date validation
         //DateAddedExtremeMin
@@ -401,8 +291,7 @@ namespace firwear_testing
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
             string DateAddedInStock = TestDate.ToString();
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "5", "2.50", "10", "10", DateAddedInStock);
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -417,8 +306,7 @@ namespace firwear_testing
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(-1);
             string DateAddedInStock = TestDate.ToString();
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "5", "2.50", "10", "10", DateAddedInStock);
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -431,8 +319,7 @@ namespace firwear_testing
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             string DateAddedInStock = TestDate.ToString();
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "5", "2.50", "10", "10", DateAddedInStock);
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -446,8 +333,7 @@ namespace firwear_testing
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(1);
             string DateAddedInStock = TestDate.ToString();
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "5", "2.50", "10", "10", DateAddedInStock);
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -461,8 +347,7 @@ namespace firwear_testing
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
             string DateAddedInStock = TestDate.ToString();
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "5", "2.50", "10", "10", DateAddedInStock);
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -473,12 +358,12 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string DateAddedInStock = "this is not a date!";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "5", "2.50", "10", "10", DateAddedInStock);
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
         //----------------------------------------------------------------------------------------------------------
 
+            //Product Name
         //ProductNameMinLessOne
         [TestMethod]
         public void ProductNameMinLessOne()
@@ -486,8 +371,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string ProductName = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", ProductName, "1", "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -498,8 +382,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string ProductName = "a";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", ProductName, "1", "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -510,8 +393,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string ProductName = "aa";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", ProductName, "1", "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -522,8 +404,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string ProductName = "aaaaaaaa";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", ProductName, "1", "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -534,8 +415,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string ProductName = "aaaaaaaaa";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", ProductName, "1", "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -547,8 +427,7 @@ namespace firwear_testing
             String Error = "";
             string ProductName = "";
             ProductName = ProductName.PadRight(51, 'a');
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", ProductName, "1", "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -559,12 +438,12 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string ProductName = "aaaa";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", ProductName, "1", "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
+        //Amount Of Stock
         //AmountOfStockMinLessOne
         [TestMethod]
         public void AmountOfStockMinLessOne()
@@ -572,8 +451,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string AmountOfStock = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", AmountOfStock, "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -584,8 +462,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string AmountOfStock = "1";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", AmountOfStock, "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -596,8 +473,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string AmountOfStock = "11";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", AmountOfStock, "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -608,8 +484,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string AmountOfStock = "11111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", AmountOfStock, "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -620,8 +495,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string AmountOfStock = "111111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", AmountOfStock, "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -632,8 +506,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string AmountOfStock = "111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", AmountOfStock, "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -644,8 +517,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string AmountOfStock = "1111111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", AmountOfStock, "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -657,8 +529,7 @@ namespace firwear_testing
             String Error = "";
             string AmountOfStock = "";
             AmountOfStock = AmountOfStock.PadRight(500, '1');
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", AmountOfStock, "1", "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
         //-------------------------------------------------------------------------------------------------------
@@ -670,8 +541,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Price = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", Price, "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -682,8 +552,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Price = "1";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", Price, "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -694,8 +563,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Price = "11";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", Price, "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -706,8 +574,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Price = "11111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", Price, "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -718,8 +585,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Price = "111111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", Price, "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -730,8 +596,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Price = "111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", Price, "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -742,8 +607,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Price = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", Price, "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -754,8 +618,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Price = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", Price, "1", DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
         //-------------------------------------------------------------------------------------------------------
@@ -767,8 +630,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Size = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", "1",Size, DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -779,8 +641,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Size = "1";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", "1", Size, DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -791,8 +652,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Size = "11";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", "1", Size, DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -803,8 +663,7 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Size = "11111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", "1", Size, DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -815,20 +674,18 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Size = "111111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", "1", Size, DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
-        //PriceMid
+        //SizeMid
         [TestMethod]
         public void SizeMid()
         {
             clsStock AnStock = new clsStock();
             String Error = "";
             string Size = "111";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", "1", Size, DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreEqual(Error, "");
         }
 
@@ -839,20 +696,18 @@ namespace firwear_testing
             clsStock AnStock = new clsStock();
             String Error = "";
             string Size = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", "1", Size, DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 
-        //PriceExtremeMax
+        //SizeExtremeMax
         [TestMethod]
         public void SizeExtremeMax()
         {
             clsStock AnStock = new clsStock();
             String Error = "";
             string Size = "";
-            Error = AnStock.Valid(StockID, ProductName, AmountOfStock, Price, Size, DateAddedInStock);
-            //Error = AnStock.Valid("1", "1", "1", "1", Size, DateTime.Now.Date.ToString());
+            Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
             Assert.AreNotEqual(Error, "");
         }
 

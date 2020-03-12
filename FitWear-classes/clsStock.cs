@@ -129,28 +129,10 @@ namespace FitWear_classes
             }
         }
 
-        public string Valid(string stockID, string productName, string amountOfStock, string price, string size, string dateAddedInStock)
+        public string Valid(string productName, string amountOfStock, string price, string size, string dateAddedInStock)
         {
             String Error = "";
-            //stock ID
-                if (stockID.Length == 0)
-                {
-                    Error = Error + "The Stock ID may not be blank : ";
-                }
 
-                if(stockID.Length >6)
-                {
-                    Error = Error + "The Stock ID must be less than 6 numbers : ";
-                }
-
-            try
-            {
-                Convert.ToInt32(stockID);
-            }
-            catch
-            {
-                Error += "Stock ID is not a valid number : ";
-            }
 
             //Product Name
             if (productName.Length == 0)
@@ -185,7 +167,7 @@ namespace FitWear_classes
             {
                 Error = Error + "The Price may not be blank : ";
             }
-            if (price.Length > 100000.00)
+            if (price.Length > 6)
             {
                 Error = Error + "The Price must be less than 6 numbers : ";
             }
@@ -203,9 +185,9 @@ namespace FitWear_classes
             {
                 Error = Error + "The Size may not be blank : ";
             }
-            if (size.Length > 100)
+            if (size.Length > 20)
             {
-                Error = Error + "The Size must be less than 6 numbers : ";
+                Error = Error + "The Size must be less than 20 numbers : ";
             }
             try
             {
