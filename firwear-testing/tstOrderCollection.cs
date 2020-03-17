@@ -89,7 +89,7 @@ namespace firwear_testing
             Int32 PrimaryKey = 0;
             TestItem.OrderID = 1;
             TestItem.CustomerID = 1;
-            TestItem.OrderDescription = "some description";
+            TestItem.OrderDescription = "somedescription";
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.TotalOrderAmount = 10.00;
             TestItem.OrderDispatched = true;
@@ -100,5 +100,52 @@ namespace firwear_testing
             Assert.AreEqual(AllOrder.ThisOrderProcessing, TestItem);
         }
 
-    }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            clsOrderProcessing TestItem = new clsOrderProcessing();
+            Int32 PrimaryKey = 0;
+            TestItem.OrderID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.OrderDescription = "somedescription";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.TotalOrderAmount = 10.00;
+            TestItem.OrderDispatched = true;
+            AllOrder.ThisOrderProcessing = TestItem;
+            PrimaryKey = AllOrder.Add();
+            TestItem.OrderID = PrimaryKey;
+            AllOrder.ThisOrderProcessing.Find(PrimaryKey);
+            AllOrder.Delete();
+            Boolean Found = AllOrder.ThisOrderProcessing.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            clsOrderProcessing TestItem = new clsOrderProcessing();
+            Int32 PrimaryKey = 0;
+            //TestItem.OrderID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.OrderDescription = "somedescription";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.TotalOrderAmount = 10.00;
+            TestItem.OrderDispatched = true;
+            AllOrder.ThisOrderProcessing = TestItem;
+            PrimaryKey = AllOrder.Add();
+            TestItem.OrderID = PrimaryKey;
+           // TestItem.OrderID = 67;
+            TestItem.CustomerID = 65;
+            TestItem.OrderDescription = "somemoredescription";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.TotalOrderAmount = 20.00;
+            TestItem.OrderDispatched = true;
+            AllOrder.ThisOrderProcessing = TestItem;
+            AllOrder.Update();
+            AllOrder.ThisOrderProcessing.Find(PrimaryKey);
+            Assert.AreEqual(AllOrder.ThisOrderProcessing, TestItem);
+
+        }
+        }
 }

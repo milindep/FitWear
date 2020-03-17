@@ -70,9 +70,33 @@ namespace FitWear_classes
 
         public int Add()
         {
-            mThisOrderProcessing.OrderID = 123;
-            return mThisOrderProcessing.OrderID;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerID", mThisOrderProcessing.CustomerID);
+            DB.AddParameter("@OrderDescription", mThisOrderProcessing.OrderDescription);
+            DB.AddParameter("@OrderDate", mThisOrderProcessing.OrderDate);
+            DB.AddParameter("@TotalOrderAmount", mThisOrderProcessing.TotalOrderAmount);
+            DB.AddParameter("@OrderDispatched", mThisOrderProcessing.OrderDispatched);
+            return DB.Execute("sproc_tblOrderProcessing_Insert");
+            
+        }
 
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderID", mThisOrderProcessing.OrderID);
+            DB.Execute("sproc_tblOrderProcessing_Delete");
+          
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerID", mThisOrderProcessing.CustomerID);
+            DB.AddParameter("@OrderDescription", mThisOrderProcessing.OrderDescription);
+            DB.AddParameter("@OrderDate", mThisOrderProcessing.OrderDate);
+            DB.AddParameter("@TotalOrderAmount", mThisOrderProcessing.TotalOrderAmount);
+            DB.AddParameter("@OrderDispatched", mThisOrderProcessing.OrderDispatched);
+            DB.Execute("sproc_tblOrderProcessing_Update");
         }
     }
 

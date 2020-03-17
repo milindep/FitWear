@@ -50,10 +50,16 @@ public partial class anOrderProcessing : System.Web.UI.Page
 
             anOrderProcessing.TotalOrderAmount = Convert.ToDouble(txtTotalOrderAmount.Text);
 
+           
+            clsOrderCollection OrderList = new clsOrderCollection();
+            OrderList.ThisOrderProcessing = anOrderProcessing;
+            OrderList.Add();
 
 
-            Session["anOrderProcessing"] = anOrderProcessing;
-            Response.Redirect("OrderProcessingViewer.aspx");
+
+
+
+            Response.Redirect("OrderProcessingList.aspx");
 
         }
         else
