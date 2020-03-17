@@ -80,5 +80,25 @@ namespace firwear_testing
             clsOrderCollection AllOrder = new clsOrderCollection();
             Assert.AreEqual(AllOrder.Count, 2);
         }*/
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            clsOrderProcessing TestItem = new clsOrderProcessing();
+            Int32 PrimaryKey = 0;
+            TestItem.OrderID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.OrderDescription = "some description";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.TotalOrderAmount = 10.00;
+            TestItem.OrderDispatched = true;
+            AllOrder.ThisOrderProcessing = TestItem;
+            PrimaryKey = AllOrder.Add();
+            TestItem.OrderID = PrimaryKey;
+            AllOrder.ThisOrderProcessing.Find(PrimaryKey);
+            Assert.AreEqual(AllOrder.ThisOrderProcessing, TestItem);
+        }
+
     }
 }

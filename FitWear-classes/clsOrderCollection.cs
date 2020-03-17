@@ -6,6 +6,7 @@ namespace FitWear_classes
     public class clsOrderCollection
     {
         List<clsOrderProcessing> mOrderList = new List<clsOrderProcessing>();
+        clsOrderProcessing mThisOrderProcessing = new clsOrderProcessing();
         public List<clsOrderProcessing> OrderList
         {
             get
@@ -29,7 +30,18 @@ namespace FitWear_classes
                 //worry later
             }
         }
-        public clsOrderProcessing ThisOrderProcessing { get; set; }
+        public clsOrderProcessing ThisOrderProcessing
+        {
+            get
+            {
+                return mThisOrderProcessing;
+
+            }
+            set
+            {
+                mThisOrderProcessing = value;
+            }
+        }
 
         public clsOrderCollection()
         {
@@ -53,23 +65,14 @@ namespace FitWear_classes
                 Index++;
             }
 
-            /*clsOrderProcessing TestItem = new clsOrderProcessing();
-            TestItem.OrderID = 1;
-            TestItem.CustomerID = 1;
-            TestItem.OrderDescription = "some description";
-            TestItem.OrderDate = DateTime.Now.Date;
-            TestItem.TotalOrderAmount = 10.00;
-            TestItem.OrderDispatched = true;
-            mOrderList.Add(TestItem);
+           
+        }
 
-            TestItem = new clsOrderProcessing();
-            TestItem.OrderID = 2;
-            TestItem.CustomerID = 2;
-            TestItem.OrderDescription = "another description";
-            TestItem.OrderDate = DateTime.Now.Date;
-            TestItem.TotalOrderAmount = 15.00;
-            TestItem.OrderDispatched = true;
-            mOrderList.Add(TestItem);*/
+        public int Add()
+        {
+            mThisOrderProcessing.OrderID = 123;
+            return mThisOrderProcessing.OrderID;
+
         }
     }
 

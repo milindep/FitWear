@@ -45,7 +45,6 @@
     <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsOrderLine.cs" />
     <Compile Include="clsOrderProcessing.cs" />
-    <Compile Include="clsStock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

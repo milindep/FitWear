@@ -52,7 +52,6 @@
     <Compile Include="tstOrder.cs" />
     <Compile Include="tstOrderCollection.cs" />
     <Compile Include="tstOrderLine.cs" />
-    <Compile Include="tstStock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
