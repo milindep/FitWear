@@ -8,14 +8,38 @@ using FitWear_classes;
 
 public partial class Stock : System.Web.UI.Page
 {
+    Int32 StockID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsStock AnStock = new clsStock();
+        StockID = Convert.ToInt32(Session["ProductID"]);
+        if(IsPostBack == false)
+        {
+            if(StockID != -1)
+            {
+                DisplayStock();
+            }
+        }
+       // clsStock AnStock = new clsStock();
 
        // AnStock = (clsStock)Session["AnStock"];
-        Response.Write(AnStock.StockID);
+        //Response.Write(AnStock.StockID);
     }
 
+    void DisplayStock()
+    {
+        clsStockCollection StockBook = new clsStockCollection();
+        StockBook.ThisStock.Find(StockID);
+
+        txtProductID.Text = StockBook.ThisStock.StockID.ToString();
+        txtProductName.Text = StockBook.ThisStock.ProductName;
+        txtAmountOfStock.Text = StockBook.ThisStock.AmountOfStock.ToString();
+        txtPrice.Text = StockBook.ThisStock.Price.ToString();
+        txtSize.Text = StockBook.ThisStock.Size.ToString();
+        txtDateAddedInStock.Text = StockBook.ThisStock.DateAddedInStock.ToString();
+        chkbxAvailability.Checked = StockBook.ThisStock.Availability;
+
+
+    }
 
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -34,22 +58,42 @@ public partial class Stock : System.Web.UI.Page
         //checks date
         string DateAddedInStock = txtDateAddedInStock.Text;
 
+
         string Error = "";
         Error = AnStock.Valid( ProductName, AmountOfStock, Price, Size, DateAddedInStock);
         if (Error == "")
         {
-           // AnStock.StockID = Convert.ToInt32(StockID);
+            AnStock.StockID = Convert.ToInt32(StockID);
             AnStock.ProductName = ProductName;
             AnStock.AmountOfStock = Convert.ToInt32(AmountOfStock);
-            AnStock.Price = Convert.ToInt32(Price);
+            AnStock.Price = Convert.ToDouble(Price);
             AnStock.Size = Convert.ToInt32(Size);
             AnStock.DateAddedInStock = Convert.ToDateTime(DateAddedInStock);
 
+            AnStock.Availability = chkbxAvailability.Checked;
 
-            //store the stock in the session object
-            Session["AnStock"] = AnStock;
-            //redirect to the viewer page
-            Response.Redirect("StockViewer.aspx");
+            clsStockCollection StockList = new clsStockCollection();
+          //  StockList.ThisStock = AnStock;
+          //  StockList.Add();
+
+                if(Convert.ToInt32(StockID) == 0)
+                {
+                    StockList.ThisStock = AnStock;
+                    StockList.Add();
+                }
+                else
+                {
+                    StockList.ThisStock.Find(Convert.ToInt32(StockID));
+                    StockList.ThisStock = AnStock;
+                    StockList.Update();
+                }
+
+            //StockList.ThisStock = AnStock;
+            //StockList.Add();
+
+            Response.Redirect("StockList.aspx");
+
+         
         }
         else
         {
@@ -111,4 +155,9 @@ public partial class Stock : System.Web.UI.Page
         }
     }
 
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+
+    }
 }
