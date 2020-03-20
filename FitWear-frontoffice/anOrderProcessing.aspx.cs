@@ -8,13 +8,41 @@ using System.Web.UI.WebControls;
 
 public partial class anOrderProcessing : System.Web.UI.Page
 {
+    Int32 OrderID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
-       // anOrderProcessing = (clsOrderProcessing)Session["anOrderProcessing"];
-        Response.Write(anOrderProcessing.OrderID);
-    }
+        if (IsPostBack == false)
+        {
+            if (OrderID != -1)
+            {
+                DisplayOrder();
+            }
+            }
+        }
 
+    void DisplayOrder()
+    {
+
+    
+        
+        
+            clsOrderCollection OrderBook = new clsOrderCollection();
+            OrderBook.ThisOrderProcessing.Find(OrderID);
+            txtOrderID.Text = OrderBook.ThisOrderProcessing.OrderID.ToString();
+            txtCustomerID.Text = OrderBook.ThisOrderProcessing.CustomerID.ToString();
+            txtOrderDescription.Text = OrderBook.ThisOrderProcessing.OrderDescription;
+            txtOrderDate.Text = OrderBook.ThisOrderProcessing.OrderDate.ToString();
+            txtTotalOrderAmount.Text = OrderBook.ThisOrderProcessing.TotalOrderAmount.ToString();
+            chkbxOrderDispatched.Text = OrderBook.ThisOrderProcessing.OrderDispatched.ToString();
+
+        }
+
+
+        //clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
+        // anOrderProcessing = (clsOrderProcessing)Session["anOrderProcessing"];
+        // Response.Write(anOrderProcessing.OrderID);
+
+    
     
 
     protected void txtOrderID_TextChanged(object sender, EventArgs e)
@@ -52,12 +80,18 @@ public partial class anOrderProcessing : System.Web.UI.Page
 
            
             clsOrderCollection OrderList = new clsOrderCollection();
-            OrderList.ThisOrderProcessing = anOrderProcessing;
-            OrderList.Add();
-
-
-
-
+            if (OrderID == -1)
+            {
+                OrderList.ThisOrderProcessing = anOrderProcessing;
+                OrderList.Add();
+            }
+            else
+            {
+                OrderList.ThisOrderProcessing.Find(OrderID);
+                OrderList.ThisOrderProcessing = anOrderProcessing;
+                OrderList.Update();
+            }
+           
 
             Response.Redirect("OrderProcessingList.aspx");
 

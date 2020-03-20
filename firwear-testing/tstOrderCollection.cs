@@ -126,7 +126,7 @@ namespace firwear_testing
             clsOrderCollection AllOrder = new clsOrderCollection();
             clsOrderProcessing TestItem = new clsOrderProcessing();
             Int32 PrimaryKey = 0;
-            //TestItem.OrderID = 1;
+           // TestItem.OrderID = 1;
             TestItem.CustomerID = 1;
             TestItem.OrderDescription = "somedescription";
             TestItem.OrderDate = DateTime.Now.Date;
@@ -135,7 +135,7 @@ namespace firwear_testing
             AllOrder.ThisOrderProcessing = TestItem;
             PrimaryKey = AllOrder.Add();
             TestItem.OrderID = PrimaryKey;
-           // TestItem.OrderID = 67;
+            //TestItem.OrderID = 67;
             TestItem.CustomerID = 65;
             TestItem.OrderDescription = "somemoredescription";
             TestItem.OrderDate = DateTime.Now.Date;
@@ -147,5 +147,47 @@ namespace firwear_testing
             Assert.AreEqual(AllOrder.ThisOrderProcessing, TestItem);
 
         }
+
+        [TestMethod]
+        public void ReportByOrderDescriptionMethodOK()
+        {
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            FilteredOrder.ReportByOrderDescription("");
+            Assert.AreEqual(AllOrder.Count, FilteredOrder.Count);
         }
+        [TestMethod]
+        public void ReportByOrderDescriptionNone()
+        {
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            FilteredOrder.ReportByOrderDescription("Lolol");
+            Assert.AreEqual(AllOrder.Count, FilteredOrder.Count);
+        }
+        [TestMethod]
+        public void ReportByOrderDescriptionTestDataFound()
+        {
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            Boolean OK = true;
+            FilteredOrder.ReportByOrderDescription("Nike Top");
+            if (FilteredOrder.Count == 2)
+            {
+                if (FilteredOrder.OrderList[0].OrderID != 36)
+                {
+                    OK = false;
+                }
+
+                if (FilteredOrder.OrderList[1].OrderID != 37)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+    }
 }

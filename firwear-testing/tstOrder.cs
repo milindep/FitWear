@@ -14,7 +14,7 @@ namespace firwear_testing
         string OrderDescription = "Hollister sweat";
         string OrderDate = DateTime.Now.Date.ToString();
         string TotalOrderAmount = "25.00";
-        string OrderDispatched = "True";
+        //string OrderDispatched = "True";
 
 
 

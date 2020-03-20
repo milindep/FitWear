@@ -24,20 +24,12 @@ public partial class OrderProcessingList : System.Web.UI.Page
     void DisplayOrder()
     {
 
-       /*clsOrderCollection OrderBook = new clsOrderCollection();
-        OrderBook.ThisOrderProcessing.Find(OrderID);
-        txtOrderID.Text = OrderBook.ThisOrderProcessing.OrderID.ToString();
-        txtCustomerID.Text = OrderBook.ThisOrderProcessing.CustomerID;
-        txtOrderDescription.Text = OrderBook.ThisOrderProcessing.OrderDescription;
-        txtOrderDate.Text = OrderBook.ThisOrderProcessing.OrderDate.ToString();
-        txtTotalOrderAmount.Text = OrderBook.ThisOrderProcessing.TotalOrderAmount;
-        chkOrderDispatched.Text = OrderBook.ThisOrderProcessing.OrderDispatched;*/
-
-        /*FitWear_classes.clsOrderCollection Order = new FitWear_classes.clsOrderCollection();
+       
+        FitWear_classes.clsOrderCollection Order = new FitWear_classes.clsOrderCollection();
         lstOrderProcessingList.DataSource = Order.OrderList;
         lstOrderProcessingList.DataValueField = "OrderID";
         lstOrderProcessingList.DataTextField = "TotalOrderAmount";
-        lstOrderProcessingList.DataBind();*/
+        lstOrderProcessingList.DataBind();
     }
 
     protected void lstOrderProcessingList_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,5 +75,24 @@ public partial class OrderProcessingList : System.Web.UI.Page
         {
             lblError.Text = "Please select a record to delete from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        clsOrderCollection Order = new clsOrderCollection();
+        Order.ReportByOrderDescription(txtFilter.Text);
+        lstOrderProcessingList.DataValueField = "OrderID";
+        lstOrderProcessingList.DataTextField = "OrderDescription";
+        lstOrderProcessingList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        clsOrderCollection Order = new clsOrderCollection();
+        Order.ReportByOrderDescription("");
+        txtFilter.Text = "";
+        lstOrderProcessingList.DataValueField = "OrderID";
+        lstOrderProcessingList.DataTextField = "OrderDescription";
+        lstOrderProcessingList.DataBind();
     }
 }

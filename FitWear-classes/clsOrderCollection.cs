@@ -46,24 +46,9 @@ namespace FitWear_classes
         public clsOrderCollection()
         {
 
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblOrderProcessing_SelectAll");
-            RecordCount = DB.Count;
-            while (Index < RecordCount)
-                {
-                clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
-                anOrderProcessing.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
-                anOrderProcessing.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                anOrderProcessing.OrderDescription = Convert.ToString(DB.DataTable.Rows[Index]["OrderDescription"]);
-                anOrderProcessing.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
-                anOrderProcessing.TotalOrderAmount = Convert.ToDouble(DB.DataTable.Rows[Index]["TotalOrderAmount"]);
-                anOrderProcessing.OrderDispatched = Convert.ToBoolean(DB.DataTable.Rows[Index]["OrderDispatched"]);
-
-                mOrderList.Add(anOrderProcessing);
-                Index++;
-            }
+            PopulateArray(DB);
 
            
         }
@@ -91,12 +76,42 @@ namespace FitWear_classes
         public void Update()
         {
             clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderID", mThisOrderProcessing.OrderID);
             DB.AddParameter("@CustomerID", mThisOrderProcessing.CustomerID);
             DB.AddParameter("@OrderDescription", mThisOrderProcessing.OrderDescription);
             DB.AddParameter("@OrderDate", mThisOrderProcessing.OrderDate);
             DB.AddParameter("@TotalOrderAmount", mThisOrderProcessing.TotalOrderAmount);
             DB.AddParameter("@OrderDispatched", mThisOrderProcessing.OrderDispatched);
             DB.Execute("sproc_tblOrderProcessing_Update");
+        }
+
+        public void ReportByOrderDescription(string OrderDescription)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderDescription", OrderDescription);
+            DB.Execute("sproc_tblOrderProcessing_FilterByOrderDescription");
+
+        }
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount = 0;
+            
+            RecordCount = DB.Count;
+            mOrderList = new List<clsOrderProcessing>();
+            while (Index < RecordCount)
+            {
+                clsOrderProcessing anOrderProcessing = new clsOrderProcessing();
+                anOrderProcessing.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
+                anOrderProcessing.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
+                anOrderProcessing.OrderDescription = Convert.ToString(DB.DataTable.Rows[Index]["OrderDescription"]);
+                anOrderProcessing.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                anOrderProcessing.TotalOrderAmount = Convert.ToDouble(DB.DataTable.Rows[Index]["TotalOrderAmount"]);
+                anOrderProcessing.OrderDispatched = Convert.ToBoolean(DB.DataTable.Rows[Index]["OrderDispatched"]);
+
+                mOrderList.Add(anOrderProcessing);
+                Index++;
+            }
         }
     }
 
