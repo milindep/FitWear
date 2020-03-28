@@ -76,7 +76,7 @@ public partial class Stock : System.Web.UI.Page
           //  StockList.ThisStock = AnStock;
           //  StockList.Add();
 
-                if(Convert.ToInt32(StockID) == 0)
+                if(Convert.ToInt32(StockID) == 000)
                 {
                     StockList.ThisStock = AnStock;
                     StockList.Add();

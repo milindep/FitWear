@@ -11,10 +11,12 @@
         <div>
         &nbsp;Product ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
             <asp:TextBox ID="txtProductID" runat="server" OnTextChanged="txtProductID_TextChanged" style="margin-left: 0px"></asp:TextBox>
+            &nbsp;&nbsp;
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" Width="47px" />
-            <br />
+            &nbsp;&nbsp; To be able to find a Product, please input Product ID<br />
 &nbsp;Product Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
             <asp:TextBox ID="txtProductName" runat="server" OnTextChanged="TextBox2_TextChanged" style="margin-left: 0px"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To be able to add a new Product, Product ID must be 000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             Amount of Stock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtAmountOfStock" runat="server" style="margin-left: 0px"></asp:TextBox>
             <br />
