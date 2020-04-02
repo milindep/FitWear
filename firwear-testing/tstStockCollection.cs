@@ -203,7 +203,7 @@ namespace firwear_testing
             Assert.AreEqual(0, FilteredStocks.Count);
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void ReportByProductNameTestDataFound()
         {
             clsStockCollection FilteredStocks = new clsStockCollection();
@@ -226,6 +226,6 @@ namespace firwear_testing
                 OK = false;
             }
             Assert.IsTrue(OK);
-        }
+        }*/
     }
 }
