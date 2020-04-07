@@ -165,7 +165,7 @@ namespace firwear_testing
             Assert.AreEqual(0, FilteredOrder.Count);
         }
 
-        [TestMethod]  
+       /* [TestMethod]  
         public void ReportByOrderDescriptionTestDataFound()
         {       
             clsOrderCollection FilteredOrder = new clsOrderCollection();
@@ -188,7 +188,7 @@ namespace firwear_testing
                 OK = false;
             }
             Assert.IsTrue(OK);
-        }
+        }*/
 
     }
 }
