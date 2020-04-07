@@ -81,6 +81,7 @@ public partial class OrderProcessingList : System.Web.UI.Page
     {
         clsOrderCollection Order = new clsOrderCollection();
         Order.ReportByOrderDescription(txtFilter.Text);
+        lstOrderProcessingList.DataSource = Order.OrderList;
         lstOrderProcessingList.DataValueField = "OrderID";
         lstOrderProcessingList.DataTextField = "OrderDescription";
         lstOrderProcessingList.DataBind();
@@ -91,6 +92,7 @@ public partial class OrderProcessingList : System.Web.UI.Page
         clsOrderCollection Order = new clsOrderCollection();
         Order.ReportByOrderDescription("");
         txtFilter.Text = "";
+        lstOrderProcessingList.DataSource = Order.OrderList;
         lstOrderProcessingList.DataValueField = "OrderID";
         lstOrderProcessingList.DataTextField = "OrderDescription";
         lstOrderProcessingList.DataBind();

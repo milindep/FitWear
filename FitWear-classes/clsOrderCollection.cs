@@ -1,4 +1,4 @@
-﻿using System;
+﻿            using System;
 using System.Collections.Generic;
 
 namespace FitWear_classes
@@ -84,12 +84,13 @@ namespace FitWear_classes
             DB.AddParameter("@OrderDispatched", mThisOrderProcessing.OrderDispatched);
             DB.Execute("sproc_tblOrderProcessing_Update");
         }
-
+            
         public void ReportByOrderDescription(string OrderDescription)
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@OrderDescription", OrderDescription);
             DB.Execute("sproc_tblOrderProcessing_FilterByOrderDescription");
+            PopulateArray(DB);
 
         }
         void PopulateArray(clsDataConnection DB)
