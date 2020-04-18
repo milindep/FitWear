@@ -11,19 +11,26 @@
         <div style="font-family: Calibri; font-weight: normal; font-style: normal; font-variant: normal; background-color: #213458; color: #887575;">
             <asp:Image ID="Image1" runat="server" Height="290px" ImageAlign="Right" ImageUrl="~/Bin/fitwear.png" />
             <br />
-            <br />
             What is your Name?:&nbsp;&nbsp;&nbsp;
+            <br />
             <asp:TextBox ID="txtName" runat="server" OnTextChanged="txtFirstName_TextChanged"></asp:TextBox>
             <br />
             <br />
-            What are your payment details?:&nbsp;&nbsp;&nbsp;
+            What are your payment details?:&nbsp;<br />
             <asp:TextBox ID="txtPaymentDetails" runat="server" Width="320px"></asp:TextBox>
             <br />
             <br />
-            What is your address?:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtAddress" runat="server" Width="450px"></asp:TextBox>
+            What is your address?:&nbsp;&nbsp;&nbsp;<br />
+            <asp:TextBox ID="txtAddress" runat="server" Width="450px"></asp:TextBox>
             <br />
             <br />
-            What is your email address:?&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtEmailAddress" runat="server" Width="320px"></asp:TextBox>
+            What is your email address:?&nbsp;&nbsp;&nbsp; 
+            <br />
+            <asp:TextBox ID="txtEmailAddress" runat="server" Width="320px"></asp:TextBox>
+            <br />
+            <br />
+            Date Of Creation (set automatically): <br />
+            <asp:TextBox ID="txtDateOfCreation" runat="server" Width="165px"></asp:TextBox>
             <br />
             <br />
             Would you like to be opted into our marketing program?&nbsp;&nbsp;&nbsp;
@@ -34,10 +41,11 @@
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
             <br />
             <br />
+            Find details through AccountId:<br />
+            <asp:TextBox ID="txtAccountId" runat="server"></asp:TextBox>
             <br />
             <br />
-            <br />
-            <br />
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             <br />
             <br />

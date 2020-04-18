@@ -36,4 +36,25 @@ public partial class Customer : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsCustomer Customer = new clsCustomer();
+
+        Int32 AccountId;
+
+        Boolean Found = false;
+
+        AccountId = Convert.ToInt32(txtAccountId.Text);
+
+        Found = Customer.Find(AccountId);
+
+        if (Found == true) {
+            txtName.Text = Customer.Name;
+            txtPaymentDetails.Text = Customer.PaymentDetails;
+            txtAddress.Text = Customer.Address;
+            txtEmailAddress.Text = Customer.EmailAddress;
+            txtDateOfCreation.Text = Convert.ToString(Customer.DateOfCreation);
+        }
+    }
 }
