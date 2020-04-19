@@ -23,13 +23,30 @@ public partial class Customer : System.Web.UI.Page
     {
         clsCustomer Customer = new clsCustomer();
 
-        Customer.Name = txtName.Text;
-        Customer.PaymentDetails = txtPaymentDetails.Text;
-        Customer.Address = txtAddress.Text;
-        Customer.EmailAddress = txtEmailAddress.Text;
-        Customer.DateOfCreation = DateTime.Now.Date;
-        Session["Customer"] = Customer;
-        Response.Write("CustomerViewer.aspx");
+        string Name = txtName.Text;
+        string PaymentDetails = txtPaymentDetails.Text;
+        string Address = txtAddress.Text ;
+        string EmailAddress = txtEmailAddress.Text;
+        string DateOfCreation = Convert.ToString(DateTime.Now.Date);
+
+        string Error = "";
+        Error = Customer.Valid(Name, PaymentDetails, Address, EmailAddress, DateOfCreation);
+
+        if (Error == "")
+        {
+            Customer.Name = Name;
+            Customer.PaymentDetails = PaymentDetails;
+            Customer.Address = Address;
+            Customer.EmailAddress = EmailAddress;
+            Customer.DateOfCreation = Convert.ToDateTime(DateOfCreation);
+
+            Session["Customer"] = Customer;
+            Response.Write("CustomerViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void txtFirstName_TextChanged(object sender, EventArgs e)

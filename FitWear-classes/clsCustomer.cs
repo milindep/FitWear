@@ -118,12 +118,59 @@ namespace FitWear_classes
                 return false;
             }
 		}
-        public string Valid(string Name,
-                            string PaymentDetails,
-                            string Address,
-                            string EmailAddress)
+        public string Valid(string name, string paymentDetails, string address, string emailAddress, string dateOfCreation)
         {
-            return "";
+            String Error = "";
+            DateTime DateTemp;
+
+            if (name.Length == 0)
+            {
+                Error = Error + "The name cannot be blank : ";
+            }
+            if (name.Length > 30) {
+                Error = Error + "The name cannot exceed 30 characters : ";
+            }
+            if (paymentDetails.Length == 0)
+            {
+                Error = Error + "The payment details cannot be blank : ";
+            }
+            if (paymentDetails.Length > 30)
+            {
+                Error = Error + "The payment details cannot exceed 30 characters : ";
+            }
+            if (address.Length == 0)
+            {
+                Error = Error + "The address cannot be blank : ";
+            }
+            if (address.Length > 50)
+            {
+                Error = Error + "The address cannot exceed 50 characters : ";
+            }
+            if (emailAddress.Length == 0)
+            {
+                Error = Error + "The email address cannot be blank : ";
+            }
+            if (emailAddress.Length > 25)
+            {
+                Error = Error + "The email address cannot exceed 25 characters : ";
+            }
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateOfCreation);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not valid : ";
+            }
+            return Error;
         }
 	}
 }

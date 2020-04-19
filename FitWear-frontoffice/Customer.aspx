@@ -50,6 +50,7 @@
             <br />
             <br />
             <br />
+            <asp:Label ID="lblError" runat="server" Text=" "></asp:Label>
             <br />
             <br />
             <br />
