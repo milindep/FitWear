@@ -8,16 +8,35 @@ using FitWear_classes;
 
 public partial class Customer : System.Web.UI.Page
 {
+    Int32 AccountId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        AccountId = Convert.ToInt32(Session["AccountId"]);
+        if (IsPostBack == false)
+        {
+            if (AccountId != -1)
+            {
+                DisplayCustomer();
+            }
+        }
     }
 
+    private void DisplayCustomer()
+    {
+        clsCustomerCollection CustomerCollection = new clsCustomerCollection();
 
+        CustomerCollection.ThisCustomer.Find(AccountId);
 
+        lblAccountId.Text = ("Editing Account ID: " + CustomerCollection.ThisCustomer.AccountId.ToString());
+        txtName.Text = CustomerCollection.ThisCustomer.Name.ToString();
+        txtPaymentDetails.Text = CustomerCollection.ThisCustomer.PaymentDetails.ToString();
+        txtAddress.Text = CustomerCollection.ThisCustomer.Address.ToString();
+        txtEmailAddress.Text = CustomerCollection.ThisCustomer.EmailAddress.ToString();
+        txtDateOfCreation.Text = CustomerCollection.ThisCustomer.DateOfCreation.ToString();
+        chkbxMarketing.Checked = CustomerCollection.ThisCustomer.Marketing;
 
-
-
+    }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
@@ -34,14 +53,30 @@ public partial class Customer : System.Web.UI.Page
 
         if (Error == "")
         {
+            Customer.AccountId = AccountId;
             Customer.Name = Name;
             Customer.PaymentDetails = PaymentDetails;
             Customer.Address = Address;
             Customer.EmailAddress = EmailAddress;
             Customer.DateOfCreation = Convert.ToDateTime(DateOfCreation);
+            Customer.Marketing = chkbxMarketing.Checked;
 
-            Session["Customer"] = Customer;
-            Response.Write("CustomerViewer.aspx");
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+
+            if (AccountId == -1)
+            {
+                CustomerList.ThisCustomer = Customer;
+
+                CustomerList.Add();
+            }
+            else
+            {
+                CustomerList.ThisCustomer.Find(AccountId);
+                CustomerList.ThisCustomer = Customer;
+                CustomerList.Update();
+            }
+
+            Response.Redirect("CustomerList.aspx");
         }
         else
         {

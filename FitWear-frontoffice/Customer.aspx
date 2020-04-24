@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
         <div style="font-family: Calibri; font-weight: normal; font-style: normal; font-variant: normal; background-color: #213458; color: #887575;">
             <asp:Image ID="Image1" runat="server" Height="290px" ImageAlign="Right" ImageUrl="~/Bin/fitwear.png" />
+            <asp:Label ID="lblAccountId" runat="server" Text=" "></asp:Label>
+            <br />
             <br />
             What is your Name?:&nbsp;&nbsp;&nbsp;
             <br />
