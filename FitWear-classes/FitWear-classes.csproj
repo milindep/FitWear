@@ -44,6 +44,7 @@
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsOrderLine.cs" />
+    <Compile Include="clsOrderLineCollection.cs" />
     <Compile Include="clsOrderProcessing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

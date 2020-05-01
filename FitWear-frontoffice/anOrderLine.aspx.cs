@@ -16,7 +16,7 @@ public partial class anOrderLine : System.Web.UI.Page
     protected void btnOk_Click(object sender, EventArgs e)
     {
         clsOrderLine anOrderLine = new clsOrderLine();
-
+        //string OrderLineID = txtOrderLineID.Text;
         string OrderID = txtOrderID.Text;
         string ProductID = txtProductID.Text;
         string Quantity = txtQuantity.Text;
@@ -24,16 +24,29 @@ public partial class anOrderLine : System.Web.UI.Page
         Error = anOrderLine.Valid(OrderID, ProductID, Quantity);
         if (Error == "")
         {
-            anOrderLine.OrderID = Convert.ToInt32(OrderID);
-            anOrderLine.ProductID = Convert.ToInt32(ProductID);
-            anOrderLine.Quantity = Convert.ToInt32(Quantity);
-            Session["anOrderLine"] = anOrderLine;
-            Response.Write("OrderLineViewer.aspx");
+            anOrderLine.OrderLineID = Convert.ToInt32(txtOrderLineID.Text);
+            anOrderLine.OrderID = Convert.ToInt32(txtOrderID.Text);
+            anOrderLine.ProductID = Convert.ToInt32(txtProductID.Text);
+            anOrderLine.Quantity = Convert.ToInt32(txtQuantity.Text);
+            clsOrderLineCollection OrderLineList = new clsOrderLineCollection();
+            if (OrderLineID == -1)
+            {
+                OrderLineList.ThisOrderLine = anOrderLine;
+                OrderLineList.Add();
+            }
+            else
+            {
+                OrderLineList.ThisOrderLine.Find(OrderLineID);
+                OrderLineList.ThisOrderLine = anOrderLine;
+                OrderLineList.Update();
+            }
+            Response.Redirect("OrderLineList.aspx");
         }
         else
         {
             lblError.Text = Error;
         }
+        
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
