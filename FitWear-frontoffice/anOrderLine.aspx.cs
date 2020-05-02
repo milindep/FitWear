@@ -16,7 +16,7 @@ public partial class anOrderLine : System.Web.UI.Page
     protected void btnOk_Click(object sender, EventArgs e)
     {
         clsOrderLine anOrderLine = new clsOrderLine();
-        //string OrderLineID = txtOrderLineID.Text;
+        
         string OrderID = txtOrderID.Text;
         string ProductID = txtProductID.Text;
         string Quantity = txtQuantity.Text;

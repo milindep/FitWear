@@ -133,6 +133,50 @@ namespace firwear_testing
             AllOrderLine.ThisOrderLine.Find(PrimaryKey);
             Assert.AreEqual(AllOrderLine.ThisOrderLine, TestItem);
         }
+
+        [TestMethod]
+        public void ReportByOrderIDMethodOK()
+        {
+            clsOrderLineCollection AllOrderLine = new clsOrderLineCollection();
+            clsOrderLineCollection FilteredOrderLine = new clsOrderLineCollection();
+            FilteredOrderLine.ReportbyOrderID("");
+            Assert.AreEqual(AllOrderLine.Count, FilteredOrderLine.Count);
+
         }
 
+        [TestMethod]
+        public void ReportByOrderIDNoneFound()
+        {
+            clsOrderLineCollection FilteredOrderLine = new clsOrderLineCollection();
+            FilteredOrderLine.ReportbyOrderID("90");
+            Assert.AreEqual(0, FilteredOrderLine.Count);
+        }
+
+        [TestMethod]
+        public void ReportByOrderIDTestDataFound()
+        {
+            clsOrderLineCollection FilteredOrderLine = new clsOrderLineCollection();
+            Boolean OK = true;
+            FilteredOrderLine.ReportbyOrderID("909");
+            if (FilteredOrderLine.Count == 2)
+            {
+                if (FilteredOrderLine.OrderLineList[0].OrderLineID != 91)
+                {
+                    OK = false;
+                }
+                if (FilteredOrderLine.OrderLineList[1].OrderLineID != 92) 
+
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+    }
 }
+

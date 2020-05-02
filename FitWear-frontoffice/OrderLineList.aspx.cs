@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FitWear_classes;
 
 public partial class OrderLineList : System.Web.UI.Page
 {
@@ -48,7 +49,7 @@ public partial class OrderLineList : System.Web.UI.Page
             Session["OrderLineID"] = OrderLineID;
             Response.Redirect("DeleteOrderLine.aspx");
         }
-       else
+        else
         {
             lblError.Text = "Please select a record to delete";
         }
@@ -67,4 +68,26 @@ public partial class OrderLineList : System.Web.UI.Page
         {
             lblError.Text = "Please select a record to delete from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        clsOrderLineCollection OrderLine = new clsOrderLineCollection();
+        OrderLine.ReportbyOrderID(txtFilter.Text);
+        lstOrderLineList.DataSource = OrderLine.OrderLineList;
+        lstOrderLineList.DataValueField = "OrderLineID";
+        lstOrderLineList.DataTextField = "OrderID";
+        lstOrderLineList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        clsOrderLineCollection OrderLine = new clsOrderLineCollection();
+        OrderLine.ReportbyOrderID("");
+        txtFilter.Text = "";
+        lstOrderLineList.DataSource = OrderLine.OrderLineList;
+        lstOrderLineList.DataValueField = "OrderLineID";
+        lstOrderLineList.DataTextField = "OrderID";
+        lstOrderLineList.DataBind();
+    }
 }

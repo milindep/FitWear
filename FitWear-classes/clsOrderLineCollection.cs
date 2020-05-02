@@ -44,21 +44,9 @@ namespace FitWear_classes
 
         public clsOrderLineCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblOrderLine_SelectAll");
-            RecordCount = DB.Count;
-            while (Index < RecordCount)
-            {
-                clsOrderLine AnOrderLine = new clsOrderLine();
-                AnOrderLine.OrderLineID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderLineID"]);
-                AnOrderLine.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
-                AnOrderLine.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
-                AnOrderLine.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
-                mOrderLineList.Add(AnOrderLine);
-                Index++;
-            }
+            PopulateArray(DB);
         }
 
         public int Add()
@@ -85,6 +73,32 @@ namespace FitWear_classes
             DB.AddParameter("@ProductID", mThisOrderLine.ProductID);
             DB.AddParameter("@Quantity", mThisOrderLine.Quantity);
             DB.Execute("sproc_tblOrderLine_Update");
+        }
+
+        public void ReportbyOrderID(string OrderID)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderID", OrderID);
+            DB.Execute("sproc_tblOrderLine_FilterByOrderID");
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mOrderLineList = new List<clsOrderLine>();
+            while (Index < RecordCount)
+            {
+                clsOrderLine AnOrderLine = new clsOrderLine();
+                AnOrderLine.OrderLineID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderLineID"]);
+                AnOrderLine.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
+                AnOrderLine.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
+                AnOrderLine.Quantity = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
+                mOrderLineList.Add(AnOrderLine);
+                Index++;
+            }
         }
     }
 }
