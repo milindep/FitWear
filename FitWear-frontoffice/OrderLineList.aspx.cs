@@ -63,7 +63,7 @@ public partial class OrderLineList : System.Web.UI.Page
         }
         else
         {
-            //lblError.Text = "Please select a record to delete from the list";
+            lblError.Text = "Please select a record to delete from the list";
         }
     }
 
