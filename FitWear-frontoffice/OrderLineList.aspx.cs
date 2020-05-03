@@ -8,16 +8,13 @@ using FitWear_classes;
 
 public partial class OrderLineList : System.Web.UI.Page
 {
-    Int32 OrderLineID;
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)
         {
-            if (OrderLineID != -1)
-            {
-
-                DisplayOrderLine();
-            }
+             DisplayOrderLine();
+     
         }
     }
 
@@ -51,7 +48,7 @@ public partial class OrderLineList : System.Web.UI.Page
         }
         else
         {
-            lblError.Text = "Please select a record to delete";
+           lblError.Text = "Please select a record to delete";
         }
     }
 
@@ -66,7 +63,7 @@ public partial class OrderLineList : System.Web.UI.Page
         }
         else
         {
-            lblError.Text = "Please select a record to delete from the list";
+            //lblError.Text = "Please select a record to delete from the list";
         }
     }
 

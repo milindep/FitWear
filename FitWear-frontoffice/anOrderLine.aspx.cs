@@ -8,9 +8,27 @@ using System.Web.UI.WebControls;
 
 public partial class anOrderLine : System.Web.UI.Page
 {
+    Int32 OrderLineID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        OrderLineID = Convert.ToInt32(Session["OrderLineID"]);
+        if (IsPostBack == false)
+        {
+            if (OrderLineID != 1)
+            {
+                DisplayOrderLine();
+            }
+        }
+    }
 
+    void DisplayOrderLine()
+    {
+        clsOrderLineCollection OrderLineBook = new clsOrderLineCollection();
+        OrderLineBook.ThisOrderLine.Find(OrderLineID);
+        txtOrderLineID.Text = OrderLineBook.ThisOrderLine.OrderLineID.ToString();
+        txtOrderID.Text = OrderLineBook.ThisOrderLine.OrderID.ToString();
+        txtProductID.Text = OrderLineBook.ThisOrderLine.ProductID.ToString();
+        txtQuantity.Text = OrderLineBook.ThisOrderLine.Quantity.ToString();
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
