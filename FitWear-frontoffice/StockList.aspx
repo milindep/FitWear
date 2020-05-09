@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <asp:Label ID="Label1" runat="server" Text="List of Products"></asp:Label>
         <br />
-        <asp:ListBox ID="lstStockList" runat="server" Height="130px" OnSelectedIndexChanged="lstStockList_SelectedIndexChanged" Width="115px"></asp:ListBox>
+        <asp:ListBox ID="lstStockList" runat="server" Height="203px" OnSelectedIndexChanged="lstStockList_SelectedIndexChanged" Width="170px"></asp:ListBox>
         
         <br />
         
