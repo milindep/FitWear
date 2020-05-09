@@ -38,14 +38,6 @@ namespace firwear_testing
             AllStock.StockList = TestList;
             Assert.AreEqual(AllStock.StockList, TestList);
         }
-        /*    [TestMethod]
-            public void CountProductOK()
-            {
-                clsStockCollection AllStock = new clsStockCollection();
-                Int32 SomeCount = 2;
-                AllStock.Count = SomeCount;
-                Assert.AreEqual(AllStock.Count, SomeCount);
-            }*/
 
         //ThisStockProductOK
         [TestMethod]
@@ -91,12 +83,6 @@ namespace firwear_testing
             AllStock.StockList = TestList;
             Assert.AreEqual(AllStock.Count, TestList.Count);
         }
-        /*  [TestMethod]
-          public void twoRecordsPresent()
-          {
-              clsStockCollection AllStock = new clsStockCollection();
-              Assert.AreEqual(AllStock.Count, 2);
-          }*/
 
         [TestMethod]
         public void AddMethodOK()
@@ -203,7 +189,7 @@ namespace firwear_testing
             Assert.AreEqual(0, FilteredStocks.Count);
         }
 
-        /*[TestMethod]
+       /* [TestMethod]
         public void ReportByProductNameTestDataFound()
         {
             clsStockCollection FilteredStocks = new clsStockCollection();
