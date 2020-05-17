@@ -117,7 +117,7 @@ namespace FitWear_classes
             DateTime DateTemp;
             if (customerID.Length == 0)
             {
-                Error = Error + "he Customer ID may not be blank: ";
+                Error = Error + "The Customer ID may not be blank: ";
             }
 
             if (customerID.Length > 6)

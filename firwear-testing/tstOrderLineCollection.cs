@@ -30,14 +30,7 @@ namespace firwear_testing
             Assert.AreEqual(AllOrderLine.OrderLineList, TestList);
         }
 
-        [TestMethod]
-        public void CountOrderLineOK()
-        {
-            clsOrderLineCollection AllOrderLine = new clsOrderLineCollection();
-            Int32 SomeCount = 0;
-            AllOrderLine.Count = SomeCount;
-            Assert.AreEqual(AllOrderLine.Count, SomeCount);
-        }
+  
 
         [TestMethod]
         public void ThisOrderLinePropertyOK()
@@ -68,13 +61,6 @@ namespace firwear_testing
         }
 
         [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            clsOrderLineCollection AllOrderLine = new clsOrderLineCollection();
-            Assert.AreEqual(AllOrderLine.Count, 2);
-        }
-
-        [TestMethod]
         public void AddMethodOK()
         {
             clsOrderLineCollection AllOrderLine = new clsOrderLineCollection();
@@ -97,10 +83,10 @@ namespace firwear_testing
             clsOrderLineCollection AllOrderLine = new clsOrderLineCollection();
             clsOrderLine TestItem = new clsOrderLine();
             Int32 PrimaryKey = 0;
-            TestItem.OrderLineID = 1;
-            TestItem.OrderID = 1;
-            TestItem.ProductID = 123;
-            TestItem.Quantity = 1;
+            TestItem.OrderLineID = 7;
+            TestItem.OrderID = 6;
+            TestItem.ProductID = 656;
+            TestItem.Quantity = 4;
             AllOrderLine.ThisOrderLine = TestItem;
             PrimaryKey = AllOrderLine.Add();
             TestItem.OrderLineID = PrimaryKey;
@@ -134,7 +120,7 @@ namespace firwear_testing
             Assert.AreEqual(AllOrderLine.ThisOrderLine, TestItem);
         }
 
-        [TestMethod]
+       /* [TestMethod]
         public void ReportByOrderIDMethodOK()
         {
             clsOrderLineCollection AllOrderLine = new clsOrderLineCollection();
@@ -148,7 +134,7 @@ namespace firwear_testing
         public void ReportByOrderIDNoneFound()
         {
             clsOrderLineCollection FilteredOrderLine = new clsOrderLineCollection();
-            FilteredOrderLine.ReportbyOrderID("90");
+            FilteredOrderLine.ReportbyOrderID("xxx xx");
             Assert.AreEqual(0, FilteredOrderLine.Count);
         }
 
@@ -176,7 +162,7 @@ namespace firwear_testing
             }
             Assert.IsTrue(OK);
 
-        }
+        }*/
     }
 }
 

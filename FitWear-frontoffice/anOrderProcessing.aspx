@@ -9,6 +9,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <br />
+        <asp:Label ID="lblLabel" runat="server">To Add an order, the orderID must be 000.</asp:Label>
+            <br />
+            <br />
             OrderID
             <asp:TextBox ID="txtOrderID" runat="server" OnTextChanged="txtOrderID_TextChanged" style="margin-left: 66px" Width="228px"></asp:TextBox>
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
@@ -25,13 +29,17 @@
         TotalOrderAmount<asp:TextBox ID="txtTotalOrderAmount" runat="server" OnTextChanged="TextBox5_TextChanged" style="margin-left: 8px" Width="223px"></asp:TextBox>
         <br />
         <br />
-        <asp:CheckBox ID="chkbxOrderDispatched" runat="server" Text="OrderDispatched" />
+        <asp:CheckBox ID="chkbxOrderDispatched" runat="server" Text="OrderDispatched" OnCheckedChanged="chkbxOrderDispatched_CheckedChanged" />
+        <br />
         <br />
         <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
         <br />
         <br />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="margin-left: 43px" Text="Cancel" Width="109px" />
+        <br />
+        <br />
+        <br />
     </form>
 </body>
 </html>

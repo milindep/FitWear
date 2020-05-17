@@ -41,8 +41,9 @@ public partial class OrderProcessingList : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        Session["OrderID"] = -1;
+        Session["OrderID"] = 000;
         Response.Redirect("anOrderProcessing.aspx");
+        
     }
 
 

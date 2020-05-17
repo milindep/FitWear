@@ -75,13 +75,15 @@ namespace FitWear_classes
             DB.Execute("sproc_tblOrderLine_Update");
         }
 
-        public void ReportbyOrderID(string OrderID)
+        public void ReportbyOrderID(String OrderID)
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@OrderID", OrderID);
             DB.Execute("sproc_tblOrderLine_FilterByOrderID");
             PopulateArray(DB);
         }
+
+ 
 
         void PopulateArray(clsDataConnection DB)
         {

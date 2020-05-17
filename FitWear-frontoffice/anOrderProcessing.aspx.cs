@@ -10,22 +10,18 @@ public partial class anOrderProcessing : System.Web.UI.Page
 {
     Int32 OrderID;
     protected void Page_Load(object sender, EventArgs e)
-    {
+    {        
+
         if (IsPostBack == false)
         {
             if (OrderID != -1)
             {
                 DisplayOrder();
             }
-            }
         }
-
+    }
     void DisplayOrder()
     {
-
-    
-        
-        
             clsOrderCollection OrderBook = new clsOrderCollection();
             OrderBook.ThisOrderProcessing.Find(OrderID);
             txtOrderID.Text = OrderBook.ThisOrderProcessing.OrderID.ToString();
@@ -80,7 +76,7 @@ public partial class anOrderProcessing : System.Web.UI.Page
 
            
             clsOrderCollection OrderList = new clsOrderCollection();
-            if (OrderID == -1)
+            if (OrderID == 000)
             {
                 OrderList.ThisOrderProcessing = anOrderProcessing;
                 OrderList.Add();
@@ -104,6 +100,10 @@ public partial class anOrderProcessing : System.Web.UI.Page
 
     protected void TextBox5_TextChanged(object sender, EventArgs e)
     {
+        
+    }
+    protected void chkbxOrderDispatched_CheckedChanged(object sender, EventArgs e)
+    {
 
     }
 
@@ -120,10 +120,14 @@ public partial class anOrderProcessing : System.Web.UI.Page
             txtOrderDescription.Text = Convert.ToString(anOrderProcessing.OrderDescription);
             txtOrderDate.Text = anOrderProcessing.OrderDate.ToString();
             txtTotalOrderAmount.Text = Convert.ToString(anOrderProcessing.TotalOrderAmount);
-            
+
 
 
 
         }
-            }
+    
+
+    } 
+
+   
 }

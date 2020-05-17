@@ -20,6 +20,8 @@
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" style="margin-left: 0px" Width="55px" />
             <br />
             <br />
+            <br />
+            <br />
             Enter Order Description
             <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
             <br />

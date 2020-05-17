@@ -7,7 +7,7 @@ namespace firwear_testing
     [TestClass]
     public class tstOrderLine
     {
-       // string OrderLineID = "1";
+        //string OrderLineID = "1";
         string OrderID = "1";
         string ProductID = "123";
         string Quantity = "1";
@@ -75,9 +75,9 @@ namespace firwear_testing
             clsOrderLine anOrderLine= new clsOrderLine();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderLineID = 1;
+            Int32 OrderLineID = 6;
             Found = anOrderLine.Find(OrderLineID);
-            if (anOrderLine.OrderLineID != 1)
+            if (anOrderLine.OrderLineID != 6)
             {
                 OK = false;
             }
@@ -90,7 +90,7 @@ namespace firwear_testing
             clsOrderLine anOrderLine = new clsOrderLine();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderLineID = 1;
+            Int32 OrderLineID = 6;
             Found = anOrderLine.Find(OrderLineID);
             if (anOrderLine.OrderID != 1)
             {
@@ -105,7 +105,7 @@ namespace firwear_testing
             clsOrderLine anOrderLine = new clsOrderLine();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderLineID = 1;
+            Int32 OrderLineID = 6;
             Found = anOrderLine.Find(OrderLineID);
             if (anOrderLine.ProductID != 123)
             {
@@ -120,7 +120,7 @@ namespace firwear_testing
             clsOrderLine anOrderLine = new clsOrderLine();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderLineID = 1;
+            Int32 OrderLineID = 6;
             Found = anOrderLine.Find(OrderLineID);
             if (anOrderLine.Quantity != 1)
             {
